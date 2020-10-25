@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="css/style.css">
         
         <head>
-            <h1 class="display-4 text-center">Weather Dashboard</h1>
+            <h1 class="display-4 title text-center">Weather Dashboard</h1>
         
         <!--main container-->
         <main class="container">
@@ -25,14 +25,20 @@
                       <input type="text" id="cityname" class="city" name= "box" placeholder="City Name..." >
                      <div id="searchBtn" class="btn">
                          <a href="#"><i class="fas fa-search"></i></a>
-                         <ul class="list-group">
-
-                        </ul>
+                         <div class="form-group">
+                            <label for="citySearchHistory"></label>
+                            
+                            <ul class="btn btn-light shadow-sm btn-lg btn-block push" id="history">
+                                <button type="button" class="btn searchHistoryBtn">Birmingham</button>
+                            </ul>
+                              
+                    </div>
                      </div>
                     
                 </div>
             
             </form>
+           
 
               <!--right column-->
               <section class="col right-col">

@@ -1,15 +1,15 @@
-
+// Get current time
 $("#currentDay").text(moment().format("DD/M/YYYY"));
 
+
+// event listener
 $("#searchBtn").click(function(event) {
     console.log('button clicked')
     getWeather();
     getFiveDayForcast ();
-   
+    addItem();
+    // addToDo();
 });
-
-
-
 
 
       ///Get weather for today
@@ -19,12 +19,11 @@ $("#searchBtn").click(function(event) {
           let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=73b47f542215050a64d2b287364ee1d1`;
           
           ///save to local storge
-         
           let cities = [];
-           cities.push(cityName);
-            let cityList = JSON.stringify(cities);
-          localStorage.setItem( "searched-cities" , cityList);
-          console.log(localStorage.setItem( "searched-cities" , cityList))
+              cities.push(cityName);
+              let cityList = JSON.stringify(cities);
+              localStorage.setItem( "searched-cities" , cityList);
+          
 
           
       let KELVIN = 273.15;
@@ -48,6 +47,7 @@ $("#searchBtn").click(function(event) {
         
 
           getUvIndex(result.coord.lon,result.coord.lat);
+          
 
           if(result.cod==200){
             sCity=JSON.parse(localStorage.getItem("searched-cities"));
@@ -67,10 +67,9 @@ $("#searchBtn").click(function(event) {
                 }
             }
         }
-          forecast(result.id);
-            $('.icon').html(result.weather[0].icon)
+          
             
-           
+            
       
 function getUvIndex(lat, lon) {
       var uvURL =
@@ -102,7 +101,7 @@ function getUvIndex(lat, lon) {
       })
             
             
-            ///5 day weather forecast
+            ///Get five day weather forecast
     };
 
             function getFiveDayForcast () {
@@ -181,6 +180,48 @@ function getUvIndex(lat, lon) {
         })
     }
       
+
+
+
+
+
+    
+// const searchHistory = document.getElementById('history');
+
+// const newItem = document.createElement('button');
+// newItem.classList.add('btn searchHistoryBtn');
+// newItem.innerText = 'Manchester';
+
+// searchHistory.appendChild(newItem);
+
+
+//local storage
+
+// function addItem() {
+//     const text = (this.querySelector('[name=box]'));
+//     const item = {
+//         text,
+//     };
+
+// cities.push(cityName);
+// let cityList = JSON.stringify(cities);
+// localStorage.setItem( "searched-cities" , cityList);
+// console.log(localStorage.setItem( "searched-cities" , cityList))
+
+// var cities = JSON.parse(localStorage.getItem("searched-cities")) || [];
+// var cities = cities.reverse();
+
+// $("#citySearchHistory").empty();
+// cities.forEach(function(city) {
+//     $("#citySearchHistory").append(`<button type="button" class="btn searchHistoryBtn">${cityName}</button>`)
+// })
+// };
+    
+
+// const localStorageContent = localStorage.getItem("searched-cities");
+// console.log(localStorageContent);
+
+
 
 
 
