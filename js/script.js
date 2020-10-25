@@ -1,4 +1,7 @@
 
+ 
+ const APIKey = '73b47f542215050a64d2b287364ee1d1'
+          
 
 $("#currentDay").text(moment().format("DD/M/YYYY"));
 
@@ -6,9 +9,11 @@ $("#searchBtn").click(function(event) {
     console.log('button clicked')
     getWeather();
     getFiveDayForcast ();
+    displaySearchedCity();
+    
 
     
-   
+    
     
     //stops the page from refreshing
 //event.preventDefault();
@@ -20,7 +25,15 @@ $("#searchBtn").click(function(event) {
           let cityName = $("#cityname").val();
           let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=73b47f542215050a64d2b287364ee1d1`;
           
+         
+          let cities = [];
+           cities.push(cityName);
+            let cityList = JSON.stringify(cities);
+          localStorage.setItem( "searched-cities" , cityList);
+          console.log(localStorage.setItem( "searched-cities" , cityList))
+
           
+         
           
       let KELVIN = 273.15;
       
@@ -38,23 +51,24 @@ $("#searchBtn").click(function(event) {
             $('.windValue').text(result.wind.speed + " MPH");
             $('.description').text(result.weather[0].description);
           var iconcode = result.weather[0].icon;
-          var iconurl = 
+          var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png"; 
 
             $('.icon').html(result.weather[0].icon)
             getUvIndex();
-            let lat = result.coord.lat;
-         let lon = result.coord.lon;
-            
+           // let lat = result.coord.lat;
+         ///let lon = result.coord.lon;
+    
+    getUVIndex(result.coord.lat, reult.coord.lon);
         }    
     });
 
   
 }
 
-       function getUvIndex() {
+       function getUvIndex(lat, lon) {
            console.log('getuv');
-      //
-            let uvURL = `https://api.openweathermap.org/data/2.5/uvi?appid=73b47f542215050a64d2b287364ee1d1&lat=33.52&lon=-86.8`;
+      
+            let uvURL = 'https://api.openweathermap.org/data/2.5/uvi?appid='+ APIKey + '&lat=' + lat + `&lon` + lon;
 
            
                 
@@ -78,6 +92,7 @@ $("#searchBtn").click(function(event) {
                 
             }
             
+
             ///5 days weather
 
             function getFiveDayForcast () {
@@ -136,49 +151,5 @@ $("#searchBtn").click(function(event) {
         })
     }
        
- // save to local storage 
-    // const storageInput = document.querySelector('#cityname');
-    // const text = document.querySelector('#text');
-    // const button = document.querySelector('.btn');
-
-    // storageInput.addEventListener('input', searchedCity => {
-    //     console.log(searchedCity.target.value);
-    //     text.textContent = searchedCity.target.value
-    // })
-
-    // const saveToLocalStorage = () => {
-    //     JSON.parse(localStorage.setItem('cityname', text.textContent))
-    // }
-
-    // button.addEventListener('click', saveToLocalStorage)
-
-    // ///display items from local storage to browser
-
-
-    // const searchCity = []
-    // const storageInput = document.querySelector('#cityname');
-    // const text = document.querySelector('#text');
-    // const button = document.querySelector('.btn');
-
-    //  storageInput.addEventListener('input', searchedCity => {
-    //         console.log(searchedCity.target.value);
-    //         text.textContent = searchedCity.target.value
-    //  })
-    //         const saveToLocalStorage = () => {
-    //         JSON.parse(localStorage.setItem('cityname', text.textContent))
-    //         }
-
  
     
-               
-
-
-    //     listOfCities = 
-    //    console.log(JSON.parse(localStorage.getItem('data')));
-   
-
- 
-    // localStorage.setItem('cityName', JSON.stringify([]));
-
-
-   

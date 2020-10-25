@@ -205,3 +205,14 @@ hr {
     padding-left: 180px;
     text-transform: uppercase;
 }
+
+li {
+    list-style-type: none;
+}
+
+.history-text {
+    padding: 30px;
+    width: 400px;
+    margin-top: 60px;
+    margin-right: 40px;
+}
