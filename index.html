@@ -25,9 +25,9 @@
                       <input type="text" id="cityname" class="city" name= "box" placeholder="City Name..." >
                      <div id="searchBtn" class="btn">
                          <a href="#"><i class="fas fa-search"></i></a>
-                         <ul class="historyItems">
-                            <li class="text-dark history-text">London</li>
-                            </ul>
+                         <ul class="list-group">
+
+                        </ul>
                      </div>
                     
                 </div>
@@ -42,12 +42,12 @@
                 <div class="city-name title my-3">
                   <p><span class="location"></span></p>
                   <span class="px-3" id="currentDay"></span>
+                  <div><img src="" id="mainIcon"></div>
                   
                 </div>
             </div>
             <div class="card-body">
                 <div class="card-mid row">
-                    <div class="icon"><img id="wicon" src="" alt="weather icon"></div>
                     <p class="description"></p>
                     <div class="col-8">
                         <p class="temp"></p>
@@ -91,63 +91,68 @@
         <!--future days weather forecast-->
     </h2>
     <div class="row five-day-box justify-content-between">
-      <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
-        <p class="card-title font-weight-bold" id="Date1">MM/DD/YY</p>
+      <div class="col-sm-2 card-body bg-light shadow-lg text-black rounded mb-3">
+        <p class="card-title font-weight-bold date" id="Date1"></p>
         <p class="card-text" style="height: 80px">
           
         </p>
-        <p class="card-text">Temp:
+        <img src="" class="day1icon icon"/>
+        <p class="card-text"><b>Temp:</b>
           <spanid id="tempDay1">--</span>
         </p>
-        <p class="card-text">Humidity:
+        <p class="card-text"><b>Humidity:</b>
           <span id="humidityDay1">--</span>
         </p>
       </div>
-      <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
-        <p class="card-title font-weight-bold" id="Date2">MM/DD/YY</p>
+      <div class="col-sm-2 card-body bg-light shadow-lg text-black rounded mb-3">
+        <p class="card-title font-weight-bold date" id="Date2"></p>
         <p class="card-text" style="height: 100px">
          
         </p>
-        <p class="card-text">Temp:
+        <img src="" class="day2icon icon"/>
+        <p class="card-text"><b>Temp:</b>
           <spanid id="tempDay2">--</span>
         </p>
-        <p class="card-text">Humidity:
+        <p class="card-text"><b>Humidity:</b>
           <span id="humidityDay2">--</span>
         </p>
       </div>
-      <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
-        <p class="card-title font-weight-bold" id="Date3">MM/DD/YY</p>
+      <div class="col-sm-2 card-body bg-light shadow-lg text-black rounded mb-3">
+        <p class="card-title font-weight-bold date" id="Date3"></p>
         <p class="card-text" style="height: 100px">
           
         </p>
-        <p class="card-text">Temp:
+        <img src="" class="day3icon icon"/>
+        <p class="card-text"><b>Temp:</b>
           <spanid id="tempDay3">--</span>
         </p>
-        <p class="card-text">Humidity:
+        <p class="card-text"><b>Humidity:</b>
           <span id="humidityDay3">--</span>
         </p>
       </div>
-      <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
-        <p class="card-title font-weight-bold" id="Date4">MM/DD/YY</p>
+      <div class="col-sm-2 card-body bg-light shadow-lg text-black rounded mb-3">
+        <p class="card-title font-weight-bold date" id="Date4"></p>
         <p class="card-text" style="height: 100px">
           
         </p>
-        <p class="card-text">Temp:
+        <img src="" class="day4icon icon"/>
+        <p class="card-text"><b>Temp:</b>
           <spanid id="tempDay4">--</span>
         </p>
-        <p class="card-text">Humidity:
+        <p class="card-text"><b>Humidity:</b>
           <span id="humidityDay4">--</span>
         </p>
       </div>
-      <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
-        <p class="card-title font-weight-bold" id="Date5">MM/DD/YY</p>
+      <div class="col-sm-2 card-body bg-light shadow-lg text-black rounded mb-3">
+        <p class="card-title font-weight-bold date" id="Date5"></p>
         <p class="card-text" style="height: 100px">
           
         </p>
-        <p class="card-text">Temp:
+        <img src="" class="day5icon icon"/>
+        <p class="card-text"><b>Temp:</b>
           <spanid id="tempDay5">--</span>
         </p>
-        <p class="card-text">Humidity:
+        <p class="card-text"><b>Humidity:</b>
           <span id="humidityDay5">--</span>
         </p>
       </div>
