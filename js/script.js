@@ -49,25 +49,9 @@ $("#searchBtn").click(function(event) {
           getUvIndex(result.coord.lon,result.coord.lat);
           
 
-          if(result.cod==200){
-            sCity=JSON.parse(localStorage.getItem("searched-cities"));
-            console.log(sCity);
-            if (sCity==null){
-                sCity=[];
-                sCity.push(city.toUpperCase()
-                );
-                localStorage.setItem("searched-cities",JSON.stringify(sCity));
-                addToList(city);
-            }
-            else {
-                if(find(city)>0){
-                    sCity.push(city.toUpperCase());
-                    localStorage.setItem("searched-cities",JSON.stringify(sCity));
-                    addToList(city);
-                }
-            }
         }
-          
+      })
+    }
             
             
       
@@ -97,12 +81,12 @@ function getUvIndex(lat, lon) {
     })
 }
     
-        }   
-      })
+           
+      
             
             
             ///Get five day weather forecast
-    };
+    
 
             function getFiveDayForcast () {
              console.log('get forcast');
@@ -186,40 +170,7 @@ function getUvIndex(lat, lon) {
 
 
 
-// const searchHistory = document.getElementById('history');
 
-// const newItem = document.createElement('button');
-// newItem.classList.add('btn searchHistoryBtn');
-// newItem.innerText = 'Manchester';
-
-// searchHistory.appendChild(newItem);
-
-
-//local storage
-
-// function addItem() {
-//     const text = (this.querySelector('[name=box]'));
-//     const item = {
-//         text,
-//     };
-
-// cities.push(cityName);
-// let cityList = JSON.stringify(cities);
-// localStorage.setItem( "searched-cities" , cityList);
-// console.log(localStorage.setItem( "searched-cities" , cityList))
-
-// var cities = JSON.parse(localStorage.getItem("searched-cities")) || [];
-// var cities = cities.reverse();
-
-// $("#citySearchHistory").empty();
-// cities.forEach(function(city) {
-//     $("#citySearchHistory").append(`<button type="button" class="btn searchHistoryBtn">${cityName}</button>`)
-// })
-// };
-    
-
-// const localStorageContent = localStorage.getItem("searched-cities");
-// console.log(localStorageContent);
 
 
 
