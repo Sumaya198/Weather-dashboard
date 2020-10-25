@@ -73,7 +73,7 @@ $("#searchBtn").click(function(event) {
       
 function getUvIndex(lat, lon) {
       var uvURL =
-        "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat+ "&lon=" + lon + "&appid=73b47f542215050a64d2b287364ee1d1";
+        "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat+ "&lon=" + lon + "&appid=73b47f542215050a64d2b287364ee1d1";
   
 
         $.ajax({
@@ -107,7 +107,7 @@ function getUvIndex(lat, lon) {
             function getFiveDayForcast () {
              console.log('get forcast');
              let cityName = $("#cityname").val();
-             let forcastUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=73b47f542215050a64d2b287364ee1d1`
+             let forcastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=73b47f542215050a64d2b287364ee1d1`
              let KELVIN = 273.15;
 
              $.ajax ({
@@ -185,7 +185,7 @@ function getUvIndex(lat, lon) {
 
 
 
-    
+
 // const searchHistory = document.getElementById('history');
 
 // const newItem = document.createElement('button');
