@@ -7,6 +7,10 @@ body {
 
 }
 
+#currentDay {
+font-size: 20px;
+}
+
 .search-box {
    
 }
@@ -86,11 +90,8 @@ form:hover{
 
 
 
-img {
-    width: 700px;
-    height:500px;
-    padding: 20px;
-    border-radius: 30px;
+#currentdate {
+    font-size: 20px;
 }
 
 .uv {
@@ -108,13 +109,16 @@ img {
 
 
 
-.temp span{
+.temp{
 font-weight: 100;
-font-size: 5em;
+font-size: 60px;
+font-family: 'Abril Fatface', cursive;
 letter-spacing: -5px;
+display: inline;
 white-space: nowrap;
 position: relative;
 top: 20px;
+padding: 70px;
 }
 
 .card-mid {
@@ -166,6 +170,38 @@ top: 20px;
     top:30px;
 }
 
-.uv-box {
+.uv-box p {
+ 
+   width: 40px;
+       
+}
 
+.degree {
+    position: relative;
+    left: 60px;
+}
+
+hr {
+    margin: 90px;
+}
+
+.uv-detail {
+    text-align: center;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.five-day-box {
+    margin: 85px;
+}
+
+#text {
+    margin: 70px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.description {
+    padding-left: 180px;
+    text-transform: uppercase;
 }

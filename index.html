@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Weather API:</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
     
@@ -20,9 +22,13 @@
                 <!--left column-->
                 <form class="col left-col search-location">
                     <div class="search-box">
-                      <input type="text" id="cityname" name= "box" placeholder="City Name..." >
-                     <div class="btn">
+                      <input type="text" id="cityname" class="city" name= "box" placeholder="City Name..." >
+                      <div class="p-3 mb-2 bg-light text-dark"id="text">Birmingham</div>
+                     <div id="searchBtn" class="btn">
                          <a href="#"><i class="fas fa-search"></i></a>
+                         <ul class="location-list">
+
+                            </ul>
                      </div>
                     
                 </div>
@@ -36,15 +42,18 @@
             <div class="card-top text-center">
                 <div class="city-name title my-3">
                   <p><span class="location"></span></p>
+                  <span class="px-3" id="currentDay"></span>
                   
                 </div>
             </div>
             <div class="card-body">
                 <div class="card-mid row">
-                    <div class="col-8 text-center temp">
-                        <span class="temp">&deg;C</span>
+                    <div class="icon"><img id="wicon" src="" alt="weather icon"></div>
+                    <p class="description"></p>
+                    <div class="col-8">
+                        <p class="temp"></p>
                     </div>
-                    <div class="col-4 temp">
+                    <div class="col-4">
                         <p class="condition">Humidity:</p>
                         <p class="humidityNr"></p>
                         
@@ -61,18 +70,19 @@
                         <p class="uvIndexValue"></p>
                         
                     </div>
-                    <div class="card-bottom py-4 row ">
-                        <div class="col d-flex justify-content-around uv-box">
-                            <p class="bg-warning">Low</p>
-                            <p class="bg-primary">Moderate</p>
-                            <p class="bg-info">High</p>
-                            <p class="bg-secondary">Very High</p>
-                            <p class="bg-danger">Extreme</p>
-                            </div>
-                            </div>
+
+                    
+                   
                 </div>
             </div>
+            <div class="card-body">
+                <div class="uv-detail card-mid row d-flex">
+                    <p class="p-3 mb-2 bg-success rounded text-center text-white">low</p>
+                    <p class="p-3 mb-2 bg-info rounded text-center text-white">Moderate</p>
+                    <p class="p-3 mb-2 bg-warning  rounded text-center text-grey">High</p>
+                    <p class="p-3 mb-2 bg-danger rounded text-center text-white">Extreme</p>
             </div>
+            
                 </section>
             
             </div>
@@ -80,7 +90,70 @@
                     
         <hr>
         <!--future days weather forecast-->
-
+    </h2>
+    <div class="row five-day-box justify-content-between">
+      <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
+        <p class="card-title font-weight-bold" id="Date1">MM/DD/YY</p>
+        <p class="card-text" style="height: 80px">
+          
+        </p>
+        <p class="card-text">Temp:
+          <spanid id="tempDay1">--</span>
+        </p>
+        <p class="card-text">Humidity:
+          <span id="humidityDay1">--</span>
+        </p>
+      </div>
+      <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
+        <p class="card-title font-weight-bold" id="Date2">MM/DD/YY</p>
+        <p class="card-text" style="height: 100px">
+         
+        </p>
+        <p class="card-text">Temp:
+          <spanid id="tempDay2">--</span>
+        </p>
+        <p class="card-text">Humidity:
+          <span id="humidityDay2">--</span>
+        </p>
+      </div>
+      <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
+        <p class="card-title font-weight-bold" id="Date3">MM/DD/YY</p>
+        <p class="card-text" style="height: 100px">
+          
+        </p>
+        <p class="card-text">Temp:
+          <spanid id="tempDay3">--</span>
+        </p>
+        <p class="card-text">Humidity:
+          <span id="humidityDay3">--</span>
+        </p>
+      </div>
+      <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
+        <p class="card-title font-weight-bold" id="Date4">MM/DD/YY</p>
+        <p class="card-text" style="height: 100px">
+          
+        </p>
+        <p class="card-text">Temp:
+          <spanid id="tempDay4">--</span>
+        </p>
+        <p class="card-text">Humidity:
+          <span id="humidityDay4">--</span>
+        </p>
+      </div>
+      <div class="col-sm-2 card-body bg-primary text-white rounded mb-3">
+        <p class="card-title font-weight-bold" id="Date5">MM/DD/YY</p>
+        <p class="card-text" style="height: 100px">
+          
+        </p>
+        <p class="card-text">Temp:
+          <spanid id="tempDay5">--</span>
+        </p>
+        <p class="card-text">Humidity:
+          <span id="humidityDay5">--</span>
+        </p>
+      </div>
+    </div>
+</div>
            
 
 </head>
@@ -99,6 +172,7 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
         crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.1/moment.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
