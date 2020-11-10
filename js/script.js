@@ -1,14 +1,16 @@
+const todoList = document.querySelector('.todo-list');
+
 // Get current time
+
 $("#currentDay").text(moment().format("DD/M/YYYY"));
 
-
+document.addEventListener('DOMContentLoaded', retrieveCities);
 // event listener
 $("#searchBtn").click(function(event) {
     console.log('button clicked')
     getWeather();
     getFiveDayForcast ();
-    addItem();
-    // addToDo();
+    
 });
 
 
@@ -17,13 +19,12 @@ $("#searchBtn").click(function(event) {
           console.log('getWeather');
           let cityName = $("#cityname").val();
           let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=73b47f542215050a64d2b287364ee1d1`;
-          
-          ///save to local storge
-          let cities = [];
-              cities.push(cityName);
-              let cityList = JSON.stringify(cities);
-              localStorage.setItem( "searched-cities" , cityList);
-          
+          //saveToStorage(cityName);
+          saveToStorage(cityName);
+          addToHistory(event);
+
+         
+         
 
           
       let KELVIN = 273.15;
@@ -65,7 +66,7 @@ function getUvIndex(lat, lon) {
             method: "GET",
         }).then(function(resultUV){
             const uvData = resultUV.value
-            $('.uvIndexValue').text("UV index:" + uvData);
+            $('.uvIndexValue').text(uvData);
 
 
       if (resultUV.value < 3) {
@@ -163,12 +164,52 @@ function getUvIndex(lat, lon) {
             }
         })
     }
-      
+
+  // set to local storage and retrieve items on to li
+
+    function saveToStorage(){
+      let citySavedNames = $("#cityname").val();
+
+      let cities;
+      if(localStorage.getItem('S-Cities') === null){
+        cities = [];
+      }else{
+        cities = JSON.parse(localStorage.getItem('S-Cities'))
+      }
+      cities.push(citySavedNames);
+      localStorage.setItem('S-Cities', JSON.stringify(cities));
+    }
 
 
+function addToHistory(event){
+  cityValue = $("#cityname").val();
+  const newList = document.createElement('li');
+  newList.innerText = cityValue;
+  newList.classList.add('main-list');
+  $('.todo-list').append(newList);
+}
 
+function retrieveCities(){
+  const citySavedNames = $("#cityname").val();
 
+  let cities;
+  if(localStorage.getItem('S-Cities') === null){
+    cities = [];
+  }else{
+    cities = JSON.parse(localStorage.getItem('S-Cities'))
+  }
+  cities.forEach(function(city){
+    console.log("run");
+    //console.log(citySavedNames);
+    const newList = document.createElement('li');
+    newList.innerText = city;
+    newList.classList.add('main-list');
+    $('.todo-list').append(newList);
 
+  });
+
+  
+}
 
 
 
