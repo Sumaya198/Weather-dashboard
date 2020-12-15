@@ -18,7 +18,7 @@ $("#searchBtn").click(function(event) {
       function getWeather () {
           console.log('getWeather');
           let cityName = $("#cityname").val();
-          let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=73b47f542215050a64d2b287364ee1d1`;
+          let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=`;
           //saveToStorage(cityName);
           saveToStorage(cityName);
           addToHistory(event);
@@ -58,7 +58,7 @@ $("#searchBtn").click(function(event) {
       
 function getUvIndex(lat, lon) {
       var uvURL =
-        "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat+ "&lon=" + lon + "&appid=73b47f542215050a64d2b287364ee1d1";
+        "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat+ "&lon=" + lon + "&appid=";
   
 
         $.ajax({
@@ -92,7 +92,7 @@ function getUvIndex(lat, lon) {
             function getFiveDayForcast () {
              console.log('get forcast');
              let cityName = $("#cityname").val();
-             let forcastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=73b47f542215050a64d2b287364ee1d1`
+             let forcastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=`
              let KELVIN = 273.15;
 
              $.ajax ({
